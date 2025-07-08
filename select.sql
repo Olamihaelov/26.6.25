@@ -51,7 +51,7 @@ where CLASS = ('H1');
 --8
 select name
 from students
-where name LIKE '%a%';
+where name LIKE '%i%';
 
 --9
 select name, grade
@@ -77,7 +77,7 @@ limit 3 offset 2;
 --13
 update students
 set grade = 100
-where name = 'dana';
+where name = 'Dana';
 
 --14
 update students
@@ -98,5 +98,6 @@ SELECT NAME, BIRTHYEAR, strftime('%Y', 'now') - BIRTHYEAR AS AGE
 FROM STUDENTS;
 
 --18
-SELECT NAME, min(grade)
-FROM STUDENTS;
+SELECT *
+FROM STUDENTS
+WHERE GRADE = (SELECT MIN(GRADE) FROM STUDENTS);
